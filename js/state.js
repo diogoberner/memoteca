@@ -6,15 +6,15 @@ const state = {
         return this.isEditing
     },
 
-    toggleIsEditing() {
-        this.isEditing = !this.isEditing
+    setIsEditing(boolean) {
+        this.isEditing = boolean
     },
 
-    getId() {
+    getID() {
         return this.id
     },
 
-    setId(id) {
+    setID(id) {
         this.id = id
     }
 }

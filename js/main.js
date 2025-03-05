@@ -6,6 +6,7 @@ const form = document.getElementById("pensamento-form")
 const quoteInput = document.getElementById("pensamento-conteudo")
 const autorInput = document.getElementById("pensamento-autoria")
 const thoughtsUL = document.getElementById("lista-pensamentos")
+const cancelBtn = document.getElementById("botao-cancelar")
 
 window.api = api;
 
@@ -19,10 +20,10 @@ form.addEventListener("submit", (e) => {
     const quote = quoteInput.value
     const autor = autorInput.value
 
-    if (isEditing) {
+    if (state.getIsEditing()) {
         api.updateThought(state.getID(), quote, autor)
         state.setID("")
-        state.toggleIsEditing()
+        state.setIsEditing(false)
         return
     }
 
@@ -46,11 +47,18 @@ thoughtsUL.addEventListener("click", async (e) => {
         const editThought = await api.getThoughts(id)
         quoteInput.value = editThought.conteudo
         autorInput.value = editThought.autoria
-        state.toggleIsEditing()
+        state.setIsEditing(true)
         state.setID(id)
         quoteInput.focus()
     }
 
+})
+
+cancelBtn.addEventListener("click", () => {
+    quoteInput.value = ""
+    autorInput.value = ""
+    state.setIsEditing(false)
+    state.setID("")
 })
 
 
