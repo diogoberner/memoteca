@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![Thumbnail](./thumb.png)
 
 # Memoteca
@@ -58,3 +59,7 @@ Para executar o frontend, abra o projeto no Visual Studio Code. Com a extensão 
 Acesse o frontend localmente em seu navegador:
 
 http://localhost:5500
+=======
+# memoteca
+Projeto desenvolvido através do curso "JavaScript: implementando CRUD com requisições HTTP" da Alura.
+>>>>>>> 895f201490c0e7a4154fd69801fa8a1894dac58e
