@@ -35,6 +35,11 @@ const thoughtsUI = {
             const li = thoughtsUI.createThoughtItem(thought)
             thoughtsUl.appendChild(li)
         })
+    },
+
+    clearForm(quoteInput, autorInput) {
+        quoteInput.value = ""
+        autorInput.value = ""
     }
 
 }

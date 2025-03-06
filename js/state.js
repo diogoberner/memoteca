@@ -16,6 +16,11 @@ const state = {
 
     setID(id) {
         this.id = id
+    },
+
+    reset() {
+        this.id = ""
+        this.isEditing = false
     }
 }
 

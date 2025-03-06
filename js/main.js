@@ -14,20 +14,21 @@ const thoughtsArray = await api.getThoughts()
 
 thoughtsUI.renderThoughtsList(thoughtsArray)
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
     const quote = quoteInput.value
     const autor = autorInput.value
 
     if (state.getIsEditing()) {
-        api.updateThought(state.getID(), quote, autor)
-        state.setID("")
-        state.setIsEditing(false)
-        return
+        await api.updateThought(state.getID(), quote, autor)
+    } else {
+        await api.createThought(quote, autor)
     }
 
-    api.createThought(quote, autor)
+    state.reset()
+    thoughtsUI.clearForm(quoteInput, autorInput)
+
 })
 
 thoughtsUL.addEventListener("click", async (e) => {
@@ -39,26 +40,26 @@ thoughtsUL.addEventListener("click", async (e) => {
     const id = li.dataset.id
 
     if (btn.classList.contains("botao-excluir")) {
-
         api.deleteThought(id)
     }
 
     if (btn.classList.contains("botao-editar")) {
-        const editThought = await api.getThoughts(id)
-        quoteInput.value = editThought.conteudo
-        autorInput.value = editThought.autoria
+        const thought = thoughtsArray.find(thought => thought.id === id)
+
+        if (thought) {
+            quoteInput.value = thought.conteudo
+            autorInput.value = thought.autoria
+        }
+
         state.setIsEditing(true)
         state.setID(id)
         quoteInput.focus()
     }
-
 })
 
 cancelBtn.addEventListener("click", () => {
-    quoteInput.value = ""
-    autorInput.value = ""
-    state.setIsEditing(false)
-    state.setID("")
+    state.reset()
+    thoughtsUI.clearForm(quoteInput, autorInput)
 })
 
 
