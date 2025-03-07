@@ -1,3 +1,5 @@
+import state from "./state.js"
+
 const thoughtsUI = {
     createThoughtItem(thought) {
         const li = document.createElement("li")
@@ -35,6 +37,21 @@ const thoughtsUI = {
             const li = thoughtsUI.createThoughtItem(thought)
             thoughtsUl.appendChild(li)
         })
+    },
+
+    async addOrEditThought(quoteInput, autorInput) {
+        const quote = quoteInput.value
+        const autor = autorInput.value
+
+        if (state.getIsEditing()) {
+            await api.updateThought(state.getID(), quote, autor)
+        } else {
+            await api.createThought(quote, autor)
+        }
+
+        state.reset()
+        thoughtsUI.clearForm(quoteInput, autorInput)
+
     },
 
     clearForm(quoteInput, autorInput) {

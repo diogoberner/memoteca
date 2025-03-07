@@ -17,18 +17,7 @@ thoughtsUI.renderThoughtsList(thoughtsArray)
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
-    const quote = quoteInput.value
-    const autor = autorInput.value
-
-    if (state.getIsEditing()) {
-        await api.updateThought(state.getID(), quote, autor)
-    } else {
-        await api.createThought(quote, autor)
-    }
-
-    state.reset()
-    thoughtsUI.clearForm(quoteInput, autorInput)
-
+    thoughtsUI.addOrEditThought(quoteInput, autorInput)
 })
 
 thoughtsUL.addEventListener("click", async (e) => {
