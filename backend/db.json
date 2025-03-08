@@ -1,14 +1,9 @@
 {
   "pensamentos": [
     {
-      "id": "7e2a",
-      "conteudo": "Que a força esteja com você!",
-      "autoria": "Mestre Yoda"
-    },
-    {
-      "id": "5c8f",
-      "conteudo": "Resolver o bug não consegue? Esfriar a cabeça vc deve.",
-      "autoria": "Mestre Yoda"
+      "conteudo": "Você é a fonte dos meus poderes, Bea, minha linda!",
+      "autoria": "Diogo",
+      "id": "7e2a"
     },
     {
       "id": "2d6e",
@@ -29,6 +24,16 @@
       "id": "4d2e",
       "conteudo": "Se eu for aí e achar, eu esfrego na sua cara!",
       "autoria": "Mãe"
+    },
+    {
+      "conteudo": "Bea, você é minha princesinha!",
+      "autoria": "Di",
+      "id": "TiUiyIa"
+    },
+    {
+      "conteudo": "Bea, eu te escolho todos os dias!",
+      "autoria": "Di",
+      "id": "1ilqg1suh0261ee3c4357a9"
     }
   ]
 }

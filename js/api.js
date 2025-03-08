@@ -5,18 +5,13 @@ const api = {
         return id ? await this.fetchData(BASE_URL + `/${id}`) : await this.fetchData(BASE_URL)
     },
 
-    async createThought(quote, autor) {
-        const newThought = {
-            conteudo: quote,
-            autoria: autor
-        }
-
+    async createThought(thought) {
         const opt = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newThought)
+            body: JSON.stringify(thought)
         }
 
         this.fetchData(BASE_URL, opt)

@@ -1,4 +1,8 @@
 import state from "./state.js"
+import uid from "./generateID.js"
+import api from "./api.js"
+
+const thoughtsUL = document.getElementById("lista-pensamentos")
 
 const thoughtsUI = {
     createThoughtItem(thought) {
@@ -40,18 +44,38 @@ const thoughtsUI = {
     },
 
     async addOrEditThought(quoteInput, autorInput) {
-        const quote = quoteInput.value
-        const autor = autorInput.value
+
+        const thought = {
+            conteudo: quoteInput.value,
+            autoria: autorInput.value,
+            id: uid()
+        }
+
+        if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
+            alert("Você precisa preencher os campos de Pensamento e Autor.")
+            return
+        }
+
+        if (thought.conteudo.length < 3) {
+            alert("Escreva o pensamento.")
+            return
+        }
 
         if (state.getIsEditing()) {
             await api.updateThought(state.getID(), quote, autor)
         } else {
-            await api.createThought(quote, autor)
+            await api.createThought(thought)
+            const li = this.createThoughtItem(thought)
+            this.addThought(li)
         }
 
         state.reset()
         thoughtsUI.clearForm(quoteInput, autorInput)
 
+    },
+
+    addThought(li) {
+        thoughtsUL.appendChild(li)
     },
 
     clearForm(quoteInput, autorInput) {

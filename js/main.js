@@ -8,11 +8,14 @@ const autorInput = document.getElementById("pensamento-autoria")
 const thoughtsUL = document.getElementById("lista-pensamentos")
 const cancelBtn = document.getElementById("botao-cancelar")
 
-window.api = api;
+let thoughtsArray = []
 
-const thoughtsArray = await api.getThoughts()
-
-thoughtsUI.renderThoughtsList(thoughtsArray)
+try {
+    thoughtsArray = await api.getThoughts()
+    thoughtsUI.renderThoughtsList(thoughtsArray)
+} catch (error) {
+    console.log("Erro ao carregar pensamentos: ", error)
+}
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
