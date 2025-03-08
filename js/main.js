@@ -14,7 +14,7 @@ try {
     thoughtsArray = await api.getThoughts()
     thoughtsUI.renderThoughtsList(thoughtsArray)
 } catch (error) {
-    console.log("Erro ao carregar pensamentos: ", error)
+    console.error("Erro ao carregar pensamentos: ", error)
 }
 
 form.addEventListener("submit", async (e) => {
@@ -33,6 +33,7 @@ thoughtsUL.addEventListener("click", async (e) => {
 
     if (btn.classList.contains("botao-excluir")) {
         api.deleteThought(id)
+        thoughtsUI.deleteThought(id)
     }
 
     if (btn.classList.contains("botao-editar")) {
@@ -41,11 +42,12 @@ thoughtsUL.addEventListener("click", async (e) => {
         if (thought) {
             quoteInput.value = thought.conteudo
             autorInput.value = thought.autoria
+            state.setIsEditing(true)
+            state.setID(id)
+            quoteInput.focus()
+        } else {
+            console.error(`Pensamento com ID ${id} não encontrado.`)
         }
-
-        state.setIsEditing(true)
-        state.setID(id)
-        quoteInput.focus()
     }
 })
 
@@ -53,6 +55,4 @@ cancelBtn.addEventListener("click", () => {
     state.reset()
     thoughtsUI.clearForm(quoteInput, autorInput)
 })
-
-
 

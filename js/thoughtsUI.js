@@ -2,7 +2,7 @@ import state from "./state.js"
 import uid from "./generateID.js"
 import api from "./api.js"
 
-const thoughtsUL = document.getElementById("lista-pensamentos")
+const thoughtsUl = document.getElementById("lista-pensamentos")
 
 const thoughtsUI = {
     createThoughtItem(thought) {
@@ -48,7 +48,7 @@ const thoughtsUI = {
         const thought = {
             conteudo: quoteInput.value,
             autoria: autorInput.value,
-            id: uid()
+            id: state.getIsEditing() ? state.getID() : uid()
         }
 
         if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
@@ -61,21 +61,37 @@ const thoughtsUI = {
             return
         }
 
-        if (state.getIsEditing()) {
-            await api.updateThought(state.getID(), quote, autor)
-        } else {
-            await api.createThought(thought)
-            const li = this.createThoughtItem(thought)
-            this.addThought(li)
+        try {
+            if (state.getIsEditing()) {
+                this.editThought(thought)
+                await api.updateThought(thought)
+            } else {
+                this.addThought(thought)
+                await api.createThought(thought)
+            }
+        } catch (error) {
+            console.error("Erro ao criar ou editar pensamento.\nTente novamente depois.", error)
         }
+
 
         state.reset()
         thoughtsUI.clearForm(quoteInput, autorInput)
 
     },
 
-    addThought(li) {
-        thoughtsUL.appendChild(li)
+    addThought(thought) {
+        const li = this.createThoughtItem(thought)
+        thoughtsUl.appendChild(li)
+    },
+
+    editThought(thought) {
+        const li = thoughtsUl.querySelector(`li[data-id="${thought.id}"]`)
+        li.querySelector(".pensamento-conteudo").textContent = thought.conteudo
+        li.querySelector(".pensamento-autoria").textContent = thought.autoria
+    },
+
+    deleteThought(id) {
+        thoughtsUl.querySelector(`li[data-id="${id}"]`).remove()
     },
 
     clearForm(quoteInput, autorInput) {
@@ -86,3 +102,4 @@ const thoughtsUI = {
 }
 
 export default thoughtsUI
+

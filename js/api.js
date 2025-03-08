@@ -25,18 +25,15 @@ const api = {
         this.fetchData(url, opt)
     },
 
-    async updateThought(id, quote, autor) {
-        const updatedThought = {
-            conteudo: quote,
-            autoria: autor
-        }
-        const url = BASE_URL + `/${id}`
+    async updateThought(thought) {
+
+        const url = BASE_URL + `/${thought.id}`
         const opt = {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(updatedThought)
+            body: JSON.stringify(thought)
         }
         this.fetchData(url, opt)
     },

@@ -1,39 +1,54 @@
 {
   "pensamentos": [
     {
-      "conteudo": "Você é a fonte dos meus poderes, Bea, minha linda!",
-      "autoria": "Diogo",
-      "id": "7e2a"
+      "id": "1ilrs4t5c0da78a1715c3da",
+      "conteudo": "O que fazemos na vida ecoa na eternidade.",
+      "autoria": "Gladiador"
     },
     {
-      "id": "2d6e",
-      "conteudo": "Não faça drama, faça café! :)",
-      "autoria": "Dev"
+      "id": "1ilrs4t5c0b79d5e14b4093",
+      "conteudo": "Ajude-me, Obi-Wan Kenobi. Você é minha única esperança.",
+      "autoria": "Star Wars: Uma Nova Esperança"
     },
     {
-      "id": "3f1a",
-      "conteudo": "Conserta minha impressora?",
-      "autoria": "Grupo da família"
+      "id": "1ilrs4t5c0ec1108c47faa",
+      "conteudo": "Quem salva uma vida, salva o mundo inteiro.",
+      "autoria": "A Lista de Schindler"
     },
     {
-      "id": "8b4c",
-      "conteudo": "A vingança nunca é plena... mata a alma e a envenena...",
-      "autoria": "Seu Madruga"
+      "id": "1ilrs4t5c0303bc0d76f77f",
+      "conteudo": "A honra é como uma rocha. Pode ser desgastada, mas nunca destruída.",
+      "autoria": "Cruzada"
     },
     {
-      "id": "4d2e",
-      "conteudo": "Se eu for aí e achar, eu esfrego na sua cara!",
-      "autoria": "Mãe"
+      "id": "1ilrs4t5c0e00472785da8e",
+      "conteudo": "Você tem o coração de um verdadeiro romano. Nunca esqueça disso.",
+      "autoria": "Ben-Hur"
     },
     {
-      "conteudo": "Bea, você é minha princesinha!",
-      "autoria": "Di",
-      "id": "TiUiyIa"
+      "id": "1ilrs4t5c064047d189239e",
+      "conteudo": "Um rei não é aquele que busca a guerra, mas sim aquele que está pronto para ela.",
+      "autoria": "Rei Arthur"
     },
     {
-      "conteudo": "Bea, eu te escolho todos os dias!",
-      "autoria": "Di",
-      "id": "1ilqg1suh0261ee3c4357a9"
+      "id": "1ilrs4t5c00adbdd694ebc4",
+      "conteudo": "Todo grande mago na história começou como nada mais do que o que somos agora. Se eles puderam fazer isso, por que nós não podemos?",
+      "autoria": "Harry Potter e a Ordem da Fênix"
+    },
+    {
+      "id": "1ilrs4t5c0c873294d597ca",
+      "conteudo": "Todo homem morre, mas nem todo homem realmente vive.",
+      "autoria": "Coração Valente"
+    },
+    {
+      "id": "1ilrs4t5c08474c08db8ab9",
+      "conteudo": "A guerra só termina quando alguém vence.",
+      "autoria": "Duna"
+    },
+    {
+      "id": "1ilrs4t5c039b3c4eb68161",
+      "conteudo": "Você não passará!",
+      "autoria": "O Senhor dos Anéis: A Sociedade do Anel"
     }
   ]
 }
