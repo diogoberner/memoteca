@@ -3,6 +3,7 @@ import uid from "./generateID.js"
 import api from "./api.js"
 
 const thoughtsUl = document.getElementById("lista-pensamentos")
+const emptyMsg = document.getElementById("mensagem-vazia")
 
 const thoughtsUI = {
     createThoughtItem(thought) {
@@ -33,9 +34,11 @@ const thoughtsUI = {
         thoughtsUl.innerHTML = ""
 
         if (!thoughtsArray || thoughtsArray.length === 0) {
-            thoughtsUl.innerHTML = `<p class="mensagem-vazia">Nenhum pensamento encontrado.</p>`
+            emptyMsg.style.display = "block"
             return
         }
+
+        emptyMsg.display = "none"
 
         thoughtsArray.forEach(thought => {
             const li = thoughtsUI.createThoughtItem(thought)

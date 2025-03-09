@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CRUD de Pensamentos</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <script type="module" src="./js/main.js"></script>
 </head>
 
 <body>
@@ -33,13 +32,11 @@
         <input type="hidden" id="pensamento-id" />
         <label for="pensamento-conteudo">Pensamento</label>
         <textarea id="pensamento-conteudo" placeholder="Digite seu pensamento" required></textarea>
-        <label for="pensamento-autoria">
-          Autoria ou Fonte
-        </label>
+        <label for="pensamento-autoria">Autoria ou Fonte</label>
         <input type="text" id="pensamento-autoria" placeholder="Insira a autoria ou fonte" required />
         <div class="form-botoes">
           <button type="submit" id="botao-salvar">
-            Adicionar
+            Salvar
           </button>
           <button type="button" id="botao-cancelar">
             Cancelar
@@ -50,17 +47,15 @@
     <span></span>
     <section id="lista-pensamentos-container">
       <h3>Meu Mural</h3>
-      <ul id="lista-pensamentos">
-        <!-- <li class="li-pensamento">
-          <img src="./assets/imagens/aspas-azuis.png" alt="Ícone de aspas" class="icone-aspas">
-          <p class="pensamento-conteudo">"A persistência é o caminho do êxito."</p>
-          <p class="pensamento-autoria">- Charles Chaplin</p>
-          <div class="icones">
-            <button class="botao-editar"><img src="./assets/imagens/icone-editar.png" alt="Editar"></button>
-            <button class="botao-excluir"><img src="./assets/imagens/icone-excluir.png" alt="Excluir"></button>
-          </div>
-        </li> -->
-      </ul>
+      <section id="busca-container">
+        <input type="text" id="campo-busca" placeholder="O que você procura?">
+        <img src="assets/imagens/lupa.png" class="lupa">
+      </section>
+      <div id="mensagem-vazia" class="mensagem-vazia">
+        <img src="assets/imagens/lista-vazia.png" alt="Nenhum pensamento disponível">
+        <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
+      </div>
+      <ul id="lista-pensamentos"></ul>
     </section>
   </main>
   <footer>
@@ -68,6 +63,7 @@
       2024 Desenvolvido por Alura.
       Projeto fictício sem fins comerciais.</p>
   </footer>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

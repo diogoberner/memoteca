@@ -2,7 +2,8 @@ const BASE_URL = "http://localhost:3000/pensamentos"
 
 const api = {
     async getThoughts(id) {
-        return id ? await this.fetchData(BASE_URL + `/${id}`) : await this.fetchData(BASE_URL)
+        const data = await this.fetchData(BASE_URL + (id ? `/${id}` : ""))
+        return data ?? []
     },
 
     async createThought(thought) {
@@ -49,7 +50,7 @@ const api = {
             return await response.json()
 
         } catch (error) {
-            const method = options.method || "GET"
+            const method = options ? options.method : "GET"
             console.error(`Erro ao fazer a requisição ${method} para a url: ${url}: ${error.message}`)
             return null
         }
