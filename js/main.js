@@ -7,6 +7,7 @@ const quoteInput = document.getElementById("pensamento-conteudo")
 const autorInput = document.getElementById("pensamento-autoria")
 const thoughtsUL = document.getElementById("lista-pensamentos")
 const cancelBtn = document.getElementById("botao-cancelar")
+const saveBtn = document.getElementById("botao-salvar")
 
 let thoughtsArray = []
 
@@ -21,6 +22,7 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
     thoughtsUI.addOrEditThought(quoteInput, autorInput)
+    saveBtn.textContent = "Adicionar"
 })
 
 thoughtsUL.addEventListener("click", async (e) => {
@@ -42,6 +44,7 @@ thoughtsUL.addEventListener("click", async (e) => {
         if (thought) {
             quoteInput.value = thought.conteudo
             autorInput.value = thought.autoria
+            saveBtn.textContent = "Salvar"
             state.setIsEditing(true)
             state.setID(id)
             quoteInput.focus()
@@ -54,5 +57,6 @@ thoughtsUL.addEventListener("click", async (e) => {
 cancelBtn.addEventListener("click", () => {
     state.reset()
     thoughtsUI.clearForm(quoteInput, autorInput)
+    saveBtn.textContent = "Adicionar"
 })
 
