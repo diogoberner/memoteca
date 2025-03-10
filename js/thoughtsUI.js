@@ -38,7 +38,7 @@ const thoughtsUI = {
             return
         }
 
-        emptyMsg.display = "none"
+        emptyMsg.style.display = "none"
 
         thoughtsArray.forEach(thought => {
             const li = thoughtsUI.createThoughtItem(thought)
@@ -102,8 +102,9 @@ const thoughtsUI = {
         autorInput.value = ""
     },
 
-    showSearchedItems() {
-        api.searchThoughs
+    async showSearchedItems(searchValue) {
+        const searchedThoughts = await api.searchThoughs(searchValue)
+        this.renderThoughtsList(searchedThoughts)
     }
 
 }

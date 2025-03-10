@@ -1,6 +1,7 @@
 import api from "./api.js"
 import state from "./state.js"
 import thoughtsUI from "./thoughtsUI.js";
+import { debounce } from "./utils.js";
 
 const form = document.getElementById("pensamento-form")
 const quoteInput = document.getElementById("pensamento-conteudo")
@@ -61,8 +62,10 @@ cancelBtn.addEventListener("click", () => {
     saveBtn.textContent = "Adicionar"
 })
 
-searchInput.addEventListener("input", () => {
-    console.log("search")
-    api.searchThoughs(searchInput.value)
-})
+searchInput.addEventListener("input", debounce((e) => {
+    e.preventDefault()
+
+    const searchValue = e.target.value.trim()
+    thoughtsUI.showSearchedItems(searchValue)
+}, 500))
 
