@@ -39,6 +39,10 @@ const api = {
         this.fetchData(url, opt)
     },
 
+    async searchThoughs(input) {
+        return await this.fetchData(BASE_URL + `?autoria_like=${input}`)
+    },
+
     async fetchData(url, options) {
         try {
             const response = await fetch(url, options)

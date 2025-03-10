@@ -8,6 +8,7 @@ const autorInput = document.getElementById("pensamento-autoria")
 const thoughtsUL = document.getElementById("lista-pensamentos")
 const cancelBtn = document.getElementById("botao-cancelar")
 const saveBtn = document.getElementById("botao-salvar")
+const searchInput = document.getElementById("campo-busca")
 
 let thoughtsArray = []
 
@@ -58,5 +59,10 @@ cancelBtn.addEventListener("click", () => {
     state.reset()
     thoughtsUI.clearForm(quoteInput, autorInput)
     saveBtn.textContent = "Adicionar"
+})
+
+searchInput.addEventListener("input", () => {
+    console.log("search")
+    api.searchThoughs(searchInput.value)
 })
 

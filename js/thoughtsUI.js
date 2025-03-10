@@ -1,5 +1,5 @@
 import state from "./state.js"
-import uid from "./generateID.js"
+import { uid } from "./utils.js"
 import api from "./api.js"
 
 const thoughtsUl = document.getElementById("lista-pensamentos")
@@ -100,6 +100,10 @@ const thoughtsUI = {
     clearForm(quoteInput, autorInput) {
         quoteInput.value = ""
         autorInput.value = ""
+    },
+
+    showSearchedItems() {
+        api.searchThoughs
     }
 
 }
