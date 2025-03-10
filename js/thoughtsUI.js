@@ -103,7 +103,7 @@ const thoughtsUI = {
     },
 
     async showSearchedItems(searchValue) {
-        const searchedThoughts = await api.searchThoughs(searchValue)
+        const searchedThoughts = await api.searchThoughs(searchValue.toLowerCase())
         this.renderThoughtsList(searchedThoughts)
     }
 
