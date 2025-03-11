@@ -40,10 +40,14 @@ const api = {
     },
 
     async searchThoughs(input) {
-        // return await this.fetchData(BASE_URL + `?autoria_like=${input}`)
-        const thoughtsArray = await this.getThoughts()
-        return thoughtsArray.filter((thought) => thought.conteudo.toLowerCase().includes(input) ||
-            thought.autoria.toLowerCase().includes(input))
+        try {
+            const thoughtsArray = await this.getThoughts()
+            return thoughtsArray.filter((thought) => thought.conteudo.toLowerCase().includes(input) ||
+                thought.autoria.toLowerCase().includes(input))
+        } catch (error) {
+            console.error("Falha ao buscar pensamentos: ", error.message)
+            return []
+        }
     },
 
     async fetchData(url, options) {

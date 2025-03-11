@@ -16,6 +16,9 @@ const thoughtsUI = {
             <p class="pensamento-conteudo">${thought.conteudo}</p>
             <p class="pensamento-autoria">${thought.autoria}</p>
             <div class="icones">
+            <button class="botao-favorito">
+                    <img src="./assets/imagens/icone-favorito_outline.png" alt="Favoritar">
+                </button>
                 <button class="botao-editar">
                     <img src="./assets/imagens/icone-editar.png" alt="Editar">
                 </button>
@@ -51,7 +54,8 @@ const thoughtsUI = {
         const thought = {
             conteudo: quoteInput.value,
             autoria: autorInput.value,
-            id: state.getIsEditing() ? state.getID() : uid()
+            id: state.getIsEditing() ? state.getID() : uid(),
+            favorite: false
         }
 
         if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
@@ -105,6 +109,13 @@ const thoughtsUI = {
     async showSearchedItems(searchValue) {
         const searchedThoughts = await api.searchThoughs(searchValue.toLowerCase())
         this.renderThoughtsList(searchedThoughts)
+    },
+
+    toggleFavoriteThought(favoriteThought, btn) {
+        favoriteThought.favorite = !favoriteThought.favorite
+
+        favoriteThought.favorite ? btn.children[0].src = "./assets/imagens/icone-favorito.png" :
+            btn.children[0].src = "./assets/imagens/icone-favorito_outline.png"
     }
 
 }

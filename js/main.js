@@ -54,6 +54,11 @@ thoughtsUL.addEventListener("click", async (e) => {
             console.error(`Pensamento com ID ${id} não encontrado.`)
         }
     }
+
+    if (btn.classList.contains("botao-favorito")) {
+        const favoriteThought = thoughtsArray.find((t) => t.id === id)
+        thoughtsUI.toggleFavoriteThought(favoriteThought, btn)
+    }
 })
 
 cancelBtn.addEventListener("click", () => {
