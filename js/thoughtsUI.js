@@ -17,7 +17,8 @@ const thoughtsUI = {
             <p class="pensamento-autoria">${thought.autoria}</p>
             <div class="icones">
             <button class="botao-favorito">
-                    <img src="./assets/imagens/icone-favorito_outline.png" alt="Favoritar">
+                    <img src=${thought.favorite ? "./assets/imagens/icone-favorito.png" :
+                "./assets/imagens/icone-favorito_outline.png"} alt="Favoritar">
                 </button>
                 <button class="botao-editar">
                     <img src="./assets/imagens/icone-editar.png" alt="Editar">
@@ -111,13 +112,14 @@ const thoughtsUI = {
         this.renderThoughtsList(searchedThoughts)
     },
 
-    toggleFavoriteThought(favoriteThought, btn) {
-        favoriteThought.favorite = !favoriteThought.favorite
+    async toggleFavoriteThought(selectedThought, btn) {
+        selectedThought.favorite = !selectedThought.favorite
 
-        favoriteThought.favorite ? btn.children[0].src = "./assets/imagens/icone-favorito.png" :
+        selectedThought.favorite ? btn.children[0].src = "./assets/imagens/icone-favorito.png" :
             btn.children[0].src = "./assets/imagens/icone-favorito_outline.png"
-    }
 
+        await api.updateThought(selectedThought)
+    }
 }
 
 export default thoughtsUI

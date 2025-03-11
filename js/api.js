@@ -36,7 +36,7 @@ const api = {
             },
             body: JSON.stringify(thought)
         }
-        this.fetchData(url, opt)
+        return await this.fetchData(url, opt)
     },
 
     async searchThoughs(input) {

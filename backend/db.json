@@ -3,22 +3,26 @@
     {
       "conteudo": "O que fazemos na vida ecoa na eternidade..",
       "autoria": "Gladiador",
-      "id": "1ilrs4t5c0da78a1715c3da"
+      "id": "1ilrs4t5c0da78a1715c3da",
+      "favorite": true
     },
     {
       "id": "1ilrs4t5c0b79d5e14b4093",
       "conteudo": "Ajude-me, Obi-Wan Kenobi. Você é minha única esperança.",
-      "autoria": "Star Wars: Uma Nova Esperança"
+      "autoria": "Star Wars: Uma Nova Esperança",
+      "favorite": true
     },
     {
       "id": "1ilrs4t5c0ec1108c47faa",
       "conteudo": "Quem salva uma vida, salva o mundo inteiro.",
-      "autoria": "A Lista de Schindler"
+      "autoria": "A Lista de Schindler",
+      "favorite": true
     },
     {
       "id": "1ilrs4t5c0303bc0d76f77f",
       "conteudo": "A honra é como uma rocha. Pode ser desgastada, mas nunca destruída.",
-      "autoria": "Cruzada"
+      "autoria": "Cruzada",
+      "favorite": true
     },
     {
       "id": "1ilrs4t5c0e00472785da8e",

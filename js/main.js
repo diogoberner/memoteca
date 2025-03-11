@@ -56,8 +56,8 @@ thoughtsUL.addEventListener("click", async (e) => {
     }
 
     if (btn.classList.contains("botao-favorito")) {
-        const favoriteThought = thoughtsArray.find((t) => t.id === id)
-        thoughtsUI.toggleFavoriteThought(favoriteThought, btn)
+        let selectedThought = thoughtsArray.find((t) => t.id === id)
+        thoughtsUI.toggleFavoriteThought(selectedThought, btn)
     }
 })
 
