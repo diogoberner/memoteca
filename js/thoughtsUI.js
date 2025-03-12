@@ -118,7 +118,7 @@ const thoughtsUI = {
         selectedThought.favorite ? btn.children[0].src = "./assets/imagens/icone-favorito.png" :
             btn.children[0].src = "./assets/imagens/icone-favorito_outline.png"
 
-        await api.updateThought(selectedThought)
+        await api.updateFavorite(selectedThought.id, selectedThought.favorite)
     }
 }
 

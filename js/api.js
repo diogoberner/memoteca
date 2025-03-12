@@ -50,6 +50,20 @@ const api = {
         }
     },
 
+    async updateFavorite(id, favorite) {
+        const url = `${BASE_URL}/${id}`
+        const opt = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ favorite })
+        }
+
+        return await this.fetchData(url, opt)
+
+    },
+
     async fetchData(url, options) {
         try {
             const response = await fetch(url, options)

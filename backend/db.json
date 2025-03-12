@@ -32,7 +32,8 @@
     {
       "id": "1ilrs4t5c064047d189239e",
       "conteudo": "Um rei não é aquele que busca a guerra, mas sim aquele que está pronto para ela.",
-      "autoria": "Rei Arthur"
+      "autoria": "Rei Arthur",
+      "favorite": true
     },
     {
       "id": "1ilrs4t5c00adbdd694ebc4",
