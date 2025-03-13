@@ -6,6 +6,7 @@ import { debounce } from "./utils.js";
 const form = document.getElementById("pensamento-form")
 const quoteInput = document.getElementById("pensamento-conteudo")
 const autorInput = document.getElementById("pensamento-autoria")
+const dateInput = document.getElementById("pensamento-data")
 const thoughtsUL = document.getElementById("lista-pensamentos")
 const cancelBtn = document.getElementById("botao-cancelar")
 const saveBtn = document.getElementById("botao-salvar")
@@ -23,7 +24,7 @@ try {
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
-    thoughtsUI.addOrEditThought(quoteInput, autorInput)
+    thoughtsUI.addOrEditThought(quoteInput, autorInput, dateInput)
     saveBtn.textContent = "Adicionar"
 })
 
@@ -46,6 +47,7 @@ thoughtsUL.addEventListener("click", async (e) => {
         if (thought) {
             quoteInput.value = thought.conteudo
             autorInput.value = thought.autoria
+            dateInput.value = thought.date
             saveBtn.textContent = "Salvar"
             state.setIsEditing(true)
             state.setID(id)
@@ -63,7 +65,7 @@ thoughtsUL.addEventListener("click", async (e) => {
 
 cancelBtn.addEventListener("click", () => {
     state.reset()
-    thoughtsUI.clearForm(quoteInput, autorInput)
+    thoughtsUI.clearForm(quoteInput, autorInput, dateInput)
     saveBtn.textContent = "Adicionar"
 })
 

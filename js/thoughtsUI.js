@@ -15,6 +15,7 @@ const thoughtsUI = {
             <img src="./assets/imagens/aspas-azuis.png" alt="ícone de aspas azuis" class="icone-aspas">
             <p class="pensamento-conteudo">${thought.conteudo}</p>
             <p class="pensamento-autoria">${thought.autoria}</p>
+            <p class="pensamento-data">${thought.data ? thought.data : ""}</p>
             <div class="icones">
             <button class="botao-favorito">
                     <img src=${thought.favorite ? "./assets/imagens/icone-favorito.png" :
@@ -50,11 +51,12 @@ const thoughtsUI = {
         })
     },
 
-    async addOrEditThought(quoteInput, autorInput) {
+    async addOrEditThought(quoteInput, autorInput, dateInput) {
 
         const thought = {
             conteudo: quoteInput.value,
             autoria: autorInput.value,
+            date: dateInput.value,
             id: state.getIsEditing() ? state.getID() : uid(),
             favorite: false
         }
@@ -83,7 +85,7 @@ const thoughtsUI = {
 
 
         state.reset()
-        thoughtsUI.clearForm(quoteInput, autorInput)
+        thoughtsUI.clearForm(quoteInput, autorInput, dateInput)
 
     },
 
@@ -102,9 +104,10 @@ const thoughtsUI = {
         thoughtsUl.querySelector(`li[data-id="${id}"]`).remove()
     },
 
-    clearForm(quoteInput, autorInput) {
+    clearForm(quoteInput, autorInput, dateInput) {
         quoteInput.value = ""
         autorInput.value = ""
+        dateInput.value = ""
     },
 
     async showSearchedItems(searchValue) {
