@@ -3,14 +3,16 @@
     {
       "conteudo": "O que fazemos na vida ecoa na eternidade..",
       "autoria": "Gladiador",
+      "data": "2025-03-14",
       "id": "1ilrs4t5c0da78a1715c3da",
-      "favorite": true
+      "favorite": false
     },
     {
-      "id": "1ilrs4t5c0b79d5e14b4093",
       "conteudo": "Ajude-me, Obi-Wan Kenobi. Você é minha única esperança.",
       "autoria": "Star Wars: Uma Nova Esperança",
-      "favorite": true
+      "data": "2024-12-19",
+      "id": "1ilrs4t5c0b79d5e14b4093",
+      "favorite": false
     },
     {
       "id": "1ilrs4t5c0ec1108c47faa",

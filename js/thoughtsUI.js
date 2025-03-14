@@ -1,5 +1,5 @@
 import state from "./state.js"
-import { uid } from "./utils.js"
+import { uid, formatDate, capitalize } from "./utils.js"
 import api from "./api.js"
 
 const thoughtsUl = document.getElementById("lista-pensamentos")
@@ -15,7 +15,7 @@ const thoughtsUI = {
             <img src="./assets/imagens/aspas-azuis.png" alt="ícone de aspas azuis" class="icone-aspas">
             <p class="pensamento-conteudo">${thought.conteudo}</p>
             <p class="pensamento-autoria">${thought.autoria}</p>
-            <p class="pensamento-data">${thought.data ? thought.data : ""}</p>
+            <p class="pensamento-data">${thought.data ? capitalize(formatDate(thought.data)) : ""}</p>
             <div class="icones">
             <button class="botao-favorito">
                     <img src=${thought.favorite ? "./assets/imagens/icone-favorito.png" :
@@ -56,7 +56,7 @@ const thoughtsUI = {
         const thought = {
             conteudo: quoteInput.value,
             autoria: autorInput.value,
-            date: dateInput.value,
+            data: dateInput.value,
             id: state.getIsEditing() ? state.getID() : uid(),
             favorite: false
         }
@@ -98,6 +98,7 @@ const thoughtsUI = {
         const li = thoughtsUl.querySelector(`li[data-id="${thought.id}"]`)
         li.querySelector(".pensamento-conteudo").textContent = thought.conteudo
         li.querySelector(".pensamento-autoria").textContent = thought.autoria
+        li.querySelector(".pensamento-data").textContent = thought.data
     },
 
     deleteThought(id) {
