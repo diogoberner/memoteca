@@ -3,59 +3,67 @@
     {
       "conteudo": "O que fazemos na vida ecoa na eternidade..",
       "autoria": "Gladiador",
-      "data": "2025-03-14",
+      "data": "2025-03-14T00:00:00.000Z",
       "id": "1ilrs4t5c0da78a1715c3da",
       "favorite": false
     },
     {
       "conteudo": "Ajude-me, Obi-Wan Kenobi. Você é minha única esperança.",
       "autoria": "Star Wars: Uma Nova Esperança",
-      "data": "2024-12-19",
+      "data": "2024-12-19T00:00:00.000Z",
       "id": "1ilrs4t5c0b79d5e14b4093",
       "favorite": false
     },
     {
-      "id": "1ilrs4t5c0ec1108c47faa",
       "conteudo": "Quem salva uma vida, salva o mundo inteiro.",
       "autoria": "A Lista de Schindler",
-      "favorite": true
+      "data": "2025-07-14T00:00:00.000Z",
+      "id": "1ilrs4t5c0ec1108c47faa",
+      "favorite": false
     },
     {
       "id": "1ilrs4t5c0303bc0d76f77f",
       "conteudo": "A honra é como uma rocha. Pode ser desgastada, mas nunca destruída.",
       "autoria": "Cruzada",
-      "favorite": true
+      "favorite": true,
+      "data": "2023-09-21T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c0e00472785da8e",
       "conteudo": "Você tem o coração de um verdadeiro romano. Nunca esqueça disso.",
-      "autoria": "Ben-Hur"
+      "autoria": "Ben-Hur",
+      "data": "2022-05-18T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c064047d189239e",
       "conteudo": "Um rei não é aquele que busca a guerra, mas sim aquele que está pronto para ela.",
       "autoria": "Rei Arthur",
-      "favorite": true
+      "favorite": true,
+      "data": "2023-11-11T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c00adbdd694ebc4",
       "conteudo": "Todo grande mago na história começou como nada mais do que o que somos agora. Se eles puderam fazer isso, por que nós não podemos?",
-      "autoria": "Harry Potter e a Ordem da Fênix"
+      "autoria": "Harry Potter e a Ordem da Fênix",
+      "data": "2024-06-30T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c0c873294d597ca",
       "conteudo": "Todo homem morre, mas nem todo homem realmente vive.",
-      "autoria": "Coração Valente"
+      "autoria": "Coração Valente",
+      "data": "2023-08-05T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c08474c08db8ab9",
       "conteudo": "A guerra só termina quando alguém vence.",
-      "autoria": "Duna"
+      "autoria": "Duna",
+      "data": "2022-12-12T00:00:00.000Z"
     },
     {
       "id": "1ilrs4t5c039b3c4eb68161",
       "conteudo": "Você não passará!",
-      "autoria": "O Senhor dos Anéis: A Sociedade do Anel"
+      "autoria": "O Senhor dos Anéis: A Sociedade do Anel",
+      "data": "2025-01-01T00:00:00.000Z"
     }
   ]
 }

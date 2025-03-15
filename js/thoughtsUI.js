@@ -1,5 +1,5 @@
 import state from "./state.js"
-import { uid, formatDate, capitalize } from "./utils.js"
+import { uid, formatDate, capitalize, dateToUTC } from "./utils.js"
 import api from "./api.js"
 
 const thoughtsUl = document.getElementById("lista-pensamentos")
@@ -56,7 +56,7 @@ const thoughtsUI = {
         const thought = {
             conteudo: quoteInput.value,
             autoria: autorInput.value,
-            data: dateInput.value,
+            data: dateToUTC(dateInput.value),
             id: state.getIsEditing() ? state.getID() : uid(),
             favorite: false
         }
