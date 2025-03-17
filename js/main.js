@@ -47,7 +47,7 @@ thoughtsUL.addEventListener("click", async (e) => {
         if (thought) {
             quoteInput.value = thought.conteudo
             autorInput.value = thought.autoria
-            dateInput.value = thought.date
+            dateInput.value = thoughtsUI.formatDateString(thought.data)
             saveBtn.textContent = "Salvar"
             state.setIsEditing(true)
             state.setID(id)

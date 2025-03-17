@@ -22,11 +22,11 @@
       "favorite": false
     },
     {
-      "id": "1ilrs4t5c0303bc0d76f77f",
       "conteudo": "A honra é como uma rocha. Pode ser desgastada, mas nunca destruída.",
       "autoria": "Cruzada",
-      "favorite": true,
-      "data": "2023-09-21T00:00:00.000Z"
+      "data": "2023-07-06T00:00:00.000Z",
+      "id": "1ilrs4t5c0303bc0d76f77f",
+      "favorite": false
     },
     {
       "id": "1ilrs4t5c0e00472785da8e",
@@ -54,16 +54,24 @@
       "data": "2023-08-05T00:00:00.000Z"
     },
     {
-      "id": "1ilrs4t5c08474c08db8ab9",
-      "conteudo": "A guerra só termina quando alguém vence.",
+      "conteudo": "A guerra só termina quando alguém vence!",
       "autoria": "Duna",
-      "data": "2022-12-12T00:00:00.000Z"
+      "data": "2025-03-05T00:00:00.000Z",
+      "id": "1ilrs4t5c08474c08db8ab9",
+      "favorite": false
     },
     {
       "id": "1ilrs4t5c039b3c4eb68161",
       "conteudo": "Você não passará!",
       "autoria": "O Senhor dos Anéis: A Sociedade do Anel",
       "data": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "conteudo": "Que homem é um homem que não torna o mundo melhor?",
+      "autoria": "Cruzada",
+      "data": "2025-03-17T00:00:00.000Z",
+      "id": "1imhjuaep051908618825ce",
+      "favorite": false
     }
   ]
 }

@@ -13,14 +13,14 @@ function debounce(func, delay) { // avoid multiple requests to api
 }
 
 const formatDate = (dateString) => {
-    console.log(dateString)
     if (dateString) {
         const date = new Date(dateString)
         return date.toLocaleDateString("pt-BR", {
             weekday: "long",
             day: "2-digit",
             month: "long",
-            year: "numeric"
+            year: "numeric",
+            timeZone: "UTC"
         })
     }
 
@@ -28,18 +28,7 @@ const formatDate = (dateString) => {
 
 }
 
-const dateToUTC = (dateString) => {
-    const date = new Date(dateString)
-    return Date.UTC(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate(),
-        date.getHours(),
-        date.getMinutes(),
-        date.getSeconds()
-    ).toISOString()
-
-}
+const dateToUTC = (dateString) => new Date(dateString).toISOString()
 
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1)
 

@@ -123,6 +123,10 @@ const thoughtsUI = {
             btn.children[0].src = "./assets/imagens/icone-favorito_outline.png"
 
         await api.updateFavorite(selectedThought.id, selectedThought.favorite)
+    },
+
+    formatDateString(date) {
+        return date.slice(0, 10)
     }
 }
 
