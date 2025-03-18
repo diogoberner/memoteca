@@ -1,7 +1,7 @@
 import api from "./api.js"
 import state from "./state.js"
 import thoughtsUI from "./thoughtsUI.js";
-import { debounce } from "./utils.js";
+import { debounce, contentValidation, autorValidation } from "./utils.js";
 
 const form = document.getElementById("pensamento-form")
 const quoteInput = document.getElementById("pensamento-conteudo")
@@ -21,8 +21,20 @@ try {
     console.error("Erro ao carregar pensamentos: ", error)
 }
 
+contentValidation("peidei")
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
+
+
+    if (!contentValidation(quoteInput.value)) {
+        alert("O pensamento precisa ter pelo menos 10 caracteres.")
+        return
+    }
+
+    if (!autorValidation(autorInput.value)) {
+        alert("O autor precisa ter entre 3 e 15 caracteres, e começar com letra maiúscula.")
+        return
+    }
 
     thoughtsUI.addOrEditThought(quoteInput, autorInput, dateInput)
     saveBtn.textContent = "Adicionar"

@@ -61,15 +61,15 @@ const thoughtsUI = {
             favorite: false
         }
 
-        if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
-            alert("Você precisa preencher os campos de Pensamento e Autor.")
-            return
-        }
+        // if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
+        //     alert("Você precisa preencher os campos de Pensamento e Autor.")
+        //     return
+        // }
 
-        if (thought.conteudo.length < 3) {
-            alert("Escreva o pensamento.")
-            return
-        }
+        // if (thought.conteudo.length < 3) {
+        //     alert("Escreva o pensamento.")
+        //     return
+        // }
 
         try {
             if (state.getIsEditing()) {

@@ -32,4 +32,15 @@ const dateToUTC = (dateString) => new Date(dateString).toISOString()
 
 const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1)
 
-export { uid, debounce, formatDate, capitalize, dateToUTC }
+const contentValidation = (content) => {
+    const regex = /^(?=(.*[A-Za-z]){10,}).+$/
+    return regex.test(content)
+
+}
+
+const autorValidation = (autor) => {
+    const regex = /^[A-Z][a-zA-Z]{1,14}$/
+    return regex.test(autor)
+}
+
+export { uid, debounce, formatDate, capitalize, dateToUTC, contentValidation, autorValidation }
