@@ -1,7 +1,7 @@
 import api from "./api.js"
 import state from "./state.js"
 import thoughtsUI from "./thoughtsUI.js";
-import { debounce, contentValidation, autorValidation } from "./utils.js";
+import { debounce, contentValidation, autorValidation, uid } from "./utils.js";
 
 const form = document.getElementById("pensamento-form")
 const quoteInput = document.getElementById("pensamento-conteudo")
@@ -13,15 +13,19 @@ const saveBtn = document.getElementById("botao-salvar")
 const searchInput = document.getElementById("campo-busca")
 
 let thoughtsArray = []
+const thoughtsSet = new Set()
 
 try {
     thoughtsArray = await api.getThoughts()
+    thoughtsArray.forEach(thought => {
+        const thoughtKey = `${thought.conteudo}-${thought.autoria}`.toLowerCase().trim();
+        thoughtsSet.add(thoughtKey)
+    });
     thoughtsUI.renderThoughtsList(thoughtsArray)
 } catch (error) {
     console.error("Erro ao carregar pensamentos: ", error)
 }
 
-contentValidation("peidei")
 form.addEventListener("submit", async (e) => {
     e.preventDefault()
 
@@ -36,7 +40,25 @@ form.addEventListener("submit", async (e) => {
         return
     }
 
-    thoughtsUI.addOrEditThought(quoteInput, autorInput, dateInput)
+
+
+    const newThoughtKey = `${quoteInput.value}-${autorInput.value}`.trim().toLowerCase()
+
+    if (thoughtsSet.has(newThoughtKey)) {
+        alert("Pensamento já cadastrado!")
+        return
+    }
+
+    const thought = {
+        conteudo: quoteInput.value,
+        autoria: autorInput.value,
+        data: dateToUTC(dateInput.value),
+        id: state.getIsEditing() ? state.getID() : uid(),
+        favorite: false
+    }
+
+    thoughtsSet.add(newThoughtKey)
+    thoughtsUI.addOrEditThought(thought)
     saveBtn.textContent = "Adicionar"
 })
 
@@ -77,7 +99,7 @@ thoughtsUL.addEventListener("click", async (e) => {
 
 cancelBtn.addEventListener("click", () => {
     state.reset()
-    thoughtsUI.clearForm(quoteInput, autorInput, dateInput)
+    thoughtsUI.clearForm()
     saveBtn.textContent = "Adicionar"
 })
 

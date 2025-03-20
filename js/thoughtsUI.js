@@ -1,5 +1,5 @@
 import state from "./state.js"
-import { uid, formatDate, capitalize, dateToUTC } from "./utils.js"
+import { formatDate, capitalize } from "./utils.js"
 import api from "./api.js"
 
 const thoughtsUl = document.getElementById("lista-pensamentos")
@@ -51,25 +51,7 @@ const thoughtsUI = {
         })
     },
 
-    async addOrEditThought(quoteInput, autorInput, dateInput) {
-
-        const thought = {
-            conteudo: quoteInput.value,
-            autoria: autorInput.value,
-            data: dateToUTC(dateInput.value),
-            id: state.getIsEditing() ? state.getID() : uid(),
-            favorite: false
-        }
-
-        // if (thought.conteudo.trim() === "" || thought.autoria.trim() === "") {
-        //     alert("Você precisa preencher os campos de Pensamento e Autor.")
-        //     return
-        // }
-
-        // if (thought.conteudo.length < 3) {
-        //     alert("Escreva o pensamento.")
-        //     return
-        // }
+    async addOrEditThought(thought) {
 
         try {
             if (state.getIsEditing()) {
@@ -85,7 +67,7 @@ const thoughtsUI = {
 
 
         state.reset()
-        thoughtsUI.clearForm(quoteInput, autorInput, dateInput)
+        thoughtsUI.clearForm()
 
     },
 
@@ -105,10 +87,9 @@ const thoughtsUI = {
         thoughtsUl.querySelector(`li[data-id="${id}"]`).remove()
     },
 
-    clearForm(quoteInput, autorInput, dateInput) {
-        quoteInput.value = ""
-        autorInput.value = ""
-        dateInput.value = ""
+    clearForm() {
+        const form = document.getElementById("pensamento-form")
+        form.reset()
     },
 
     async showSearchedItems(searchValue) {
